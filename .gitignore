@@ -1,0 +1,79 @@
+############################
+# Terraform
+############################
+
+# Local Terraform directories
+**/.terraform/*
+.terraform/
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Sensitive variable files
+terraform.tfvars
+terraform.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration
+.terraformrc
+terraform.rc
+
+############################
+# Ansible
+############################
+
+# Ansible retry files
+*.retry
+
+# Inventory secrets (if any)
+inventory/*/group_vars/*secret*
+inventory/*/host_vars/*secret*
+
+############################
+# Logs & OS
+############################
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+############################
+# IDE / Editor
+############################
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# IntelliJ / PyCharm
+.idea/
+
+############################
+# SSH & Keys
+############################
+
+*.pem
+*.key
+*.crt
+
+############################
+# Environment / Secrets
+############################
+
+.env
+.env.*
