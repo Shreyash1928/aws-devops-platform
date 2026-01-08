@@ -57,3 +57,12 @@ module "alb_asg" {
   launch_template_id        = module.launch_template.launch_template_id
   launch_template_version   = module.launch_template.launch_template_latest_version
 }
+
+module "monitoring" {
+  source = "../../modules/monitoring"
+
+  project_name = var.project_name
+  environment  = var.environment
+  asg_name     = module.alb_asg.asg_name
+  alert_email  = var.alert_email
+}

@@ -24,3 +24,7 @@ variable "public_subnets" {
 variable "private_subnets" {
 
 }
+variable "alert_email" {
+  type = string
+}
+
