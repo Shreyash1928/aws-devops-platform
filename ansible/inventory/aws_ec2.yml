@@ -1,0 +1,14 @@
+plugin: amazon.aws.aws_ec2
+regions:
+  - ap-south-1
+
+filters:
+  tag:Project: aws-devops-platform
+  tag:Environment: dev
+
+keyed_groups:
+  - key: tags.Role
+    prefix: role
+
+hostnames:
+  - private-ip-address

@@ -77,3 +77,13 @@ Thumbs.db
 
 .env
 .env.*
+
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Ansible
+*.retry

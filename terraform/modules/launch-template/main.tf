@@ -18,6 +18,7 @@ resource "aws_launch_template" "this" {
       Name        = "${var.project_name}-${var.environment}-ec2"
       Environment = var.environment
       Project     = var.project_name
+      Role        = "web"
     }
   }
 }

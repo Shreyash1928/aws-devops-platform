@@ -39,7 +39,7 @@ module "launch_template" {
   project_name      = var.project_name
   environment       = var.environment
   ami_id            = data.aws_ami.amazon_linux.id
-  instance_type     = "t2.micro"
+  instance_type     = "t3.micro"
   security_group_id = module.security_groups.ec2_sg_id
   subnet_ids        = module.vpc.private_subnet_ids
 }

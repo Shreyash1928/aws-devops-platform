@@ -1,0 +1,5 @@
+- name: Configure application servers
+  hosts: role_web
+  become: true
+  roles:
+    - web
