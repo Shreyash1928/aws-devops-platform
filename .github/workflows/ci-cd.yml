@@ -117,4 +117,5 @@ jobs:
           AWS_REGION: ap-south-1
         run: |
           source .venv/bin/activate
-          ansible-playbook playbooks/site.yml
+          ansible-playbook playbooks/app.yml
+
