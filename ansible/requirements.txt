@@ -1,3 +1,4 @@
 ansible==2.20.1
-boto3==1.34.x
-botocore==1.34.x
+boto3>=1.34,<2.0
+botocore>=1.34,<2.0
+
