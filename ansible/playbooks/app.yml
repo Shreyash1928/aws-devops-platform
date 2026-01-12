@@ -1,8 +1,4 @@
 - name: Configure application servers
   hosts: all
+  connection: amazon.aws.aws_ssm
   gather_facts: false
-  become: false
-
-  tasks:
-    - name: Test SSM connectivity
-      ansible.builtin.command: echo "SSM CONNECTED"

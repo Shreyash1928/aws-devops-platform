@@ -10,7 +10,7 @@ hostnames:
   - instance-id
 
 compose:
-  ansible_host: instance_id
   ansible_connection: amazon.aws.aws_ssm
   ansible_aws_ssm_region: ap-south-1
   ansible_aws_ssm_target: instance_id
+  ansible_python_interpreter: /usr/bin/python3
