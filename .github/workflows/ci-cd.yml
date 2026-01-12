@@ -93,6 +93,9 @@ jobs:
 
     env:
       ANSIBLE_CONFIG: ansible.cfg
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ap-south-1
 
     defaults:
       run:
@@ -133,10 +136,6 @@ jobs:
 
 
       - name: Run Ansible via SSM
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ap-south-1
         run: |
           source .venv/bin/activate
           ansible-playbook playbooks/app.yml -vv
