@@ -116,7 +116,6 @@ jobs:
 
           # 🔑 REQUIRED for SSM
           ansible-galaxy collection install amazon.aws
-          ansible-galaxy collection install community.aws
 
           # ✅ VERIFY (THIS IS STEP 1)
           ansible-galaxy collection list

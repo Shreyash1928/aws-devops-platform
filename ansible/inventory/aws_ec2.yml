@@ -11,7 +11,6 @@ hostnames:
 
 compose:
   ansible_host: instance_id
-  ansible_connection: community.aws.aws_ssm
-  ansible_user: ssm-user
+  ansible_connection: amazon.aws.aws_ssm
   ansible_aws_ssm_region: ap-south-1
   ansible_aws_ssm_target: instance_id

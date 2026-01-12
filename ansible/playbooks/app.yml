@@ -1,6 +1,5 @@
 - name: Configure application servers
   hosts: all
-  connection: community.aws.aws_ssm
   gather_facts: false
   become: false
 
