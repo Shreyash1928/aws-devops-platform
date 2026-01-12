@@ -1,8 +1,9 @@
 - name: Configure application servers
   hosts: all
-  connection: amazon.aws.aws_ssm
   gather_facts: false
+  connection: amazon.aws.aws_ssm
 
   tasks:
     - name: Prove Ansible ran
-      ansible.builtin.command: echo "ANSIBLE VIA SSM WORKING"
+      ansible.builtin.shell: echo "ANSIBLE VIA SSM WORKING"
+
