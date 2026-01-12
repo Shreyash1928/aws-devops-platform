@@ -84,10 +84,11 @@ jobs:
 #####################################
 # ANSIBLE (RUNS AFTER APPLY)
 #####################################
+
   ansible:
     name: Ansible via SSM
     runs-on: ubuntu-latest
-    needs: terraform
+    needs: terraform-apply
     if: github.event_name == 'workflow_dispatch'
 
     defaults:
