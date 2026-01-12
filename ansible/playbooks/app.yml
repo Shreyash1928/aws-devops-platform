@@ -2,3 +2,7 @@
   hosts: all
   connection: amazon.aws.aws_ssm
   gather_facts: false
+
+  tasks:
+    - name: Prove Ansible ran
+      ansible.builtin.command: echo "ANSIBLE VIA SSM WORKING"
