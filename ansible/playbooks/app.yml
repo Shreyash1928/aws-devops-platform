@@ -1,6 +1,7 @@
 - name: Configure application servers
   hosts: all
-  gather_facts: false   # ⚠️ REQUIRED for SSM
+  connection: community.aws.aws_ssm
+  gather_facts: false
   become: true
 
   tasks:
