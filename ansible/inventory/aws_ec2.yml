@@ -4,7 +4,7 @@ regions:
   - ap-south-1
 
 filters:
-  tag:Environment: dev
+  tag:Environment: "dev"
 
 hostnames:
   - instance-id
