@@ -66,3 +66,4 @@ module "monitoring" {
   asg_name     = module.alb_asg.asg_name
   alert_email  = var.alert_email
 }
+

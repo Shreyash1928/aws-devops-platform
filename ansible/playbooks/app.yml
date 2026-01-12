@@ -1,5 +1,7 @@
 - name: Configure application servers
-  hosts: role_web
+  hosts: all
   become: true
+  gather_facts: true
+
   roles:
     - web

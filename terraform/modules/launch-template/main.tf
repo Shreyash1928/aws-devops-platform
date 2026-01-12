@@ -12,6 +12,11 @@ resource "aws_launch_template" "this" {
               EOF
   )
 
+    iam_instance_profile {
+    name = aws_iam_instance_profile.ssm_profile.name
+  }
+
+
   tag_specifications {
     resource_type = "instance"
     tags = {
@@ -22,3 +27,6 @@ resource "aws_launch_template" "this" {
     }
   }
 }
+
+
+

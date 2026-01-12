@@ -11,4 +11,8 @@ keyed_groups:
     prefix: role
 
 hostnames:
-  - private-ip-address
+  - instance_id
+
+compose:
+  ansible_connection: aws_ssm
+  ansible_host: instance_id
