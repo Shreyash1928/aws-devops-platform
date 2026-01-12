@@ -1,7 +1,8 @@
 - name: Configure application servers
   hosts: all
+  gather_facts: false   # ⚠️ REQUIRED for SSM
   become: true
-  gather_facts: true
 
-  roles:
-    - web
+  tasks:
+    - name: Test SSM connectivity
+      ansible.builtin.command: whoami

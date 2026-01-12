@@ -1,18 +1,18 @@
 plugin: amazon.aws.aws_ec2
+
 regions:
   - ap-south-1
 
 filters:
-  tag:Project: aws-devops-platform
   tag:Environment: dev
 
 keyed_groups:
-  - key: tags.Role
-    prefix: role
+  - key: tags.Name
+    prefix: name
 
 hostnames:
-  - instance_id
+  - instance-id
 
 compose:
-  ansible_connection: aws_ssm
   ansible_host: instance_id
+  ansible_connection: aws_ssm
