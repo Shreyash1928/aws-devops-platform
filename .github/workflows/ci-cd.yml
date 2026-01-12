@@ -92,7 +92,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch'
 
     env:
-    ANSIBLE_CONFIG: ansible/ansible.cfg
+      ANSIBLE_CONFIG: ansible/ansible.cfg
 
     defaults:
       run:
