@@ -2,8 +2,8 @@
   hosts: all
   connection: community.aws.aws_ssm
   gather_facts: false
-  become: true
+  become: false
 
   tasks:
     - name: Test SSM connectivity
-      ansible.builtin.command: whoami
+      ansible.builtin.command: echo "SSM CONNECTED"
