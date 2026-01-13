@@ -4,6 +4,6 @@
   connection: amazon.aws.aws_ssm
 
   tasks:
-    - name: Prove Ansible ran
-      ansible.builtin.shell: echo "ANSIBLE VIA SSM WORKING"
-
+    - name: Prove Ansible via SSM works
+      ansible.builtin.debug:
+        msg: "ANSIBLE VIA SSM IS WORKING 🎉"
