@@ -1,9 +1,21 @@
 - name: Install nginx
-  yum:
+  package:
     name: nginx
     state: present
 
-- name: Start nginx
+- name: Create index page
+  copy:
+    content: |
+      <html>
+        <head><title>Deployed via Ansible SSM</title></head>
+        <body>
+          <h1>🚀 NGINX DEPLOYED SUCCESSFULLY</h1>
+          <p>Environment: {{ lookup('env','ENVIRONMENT') | default('dev') }}</p>
+        </body>
+      </html>
+    dest: /usr/share/nginx/html/index.html
+
+- name: Start and enable nginx
   service:
     name: nginx
     state: started

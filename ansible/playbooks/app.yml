@@ -3,7 +3,5 @@
   gather_facts: false
   connection: amazon.aws.aws_ssm
 
-  tasks:
-    - name: Prove Ansible via SSM works
-      ansible.builtin.debug:
-        msg: "ANSIBLE VIA SSM IS WORKING 🎉"
+  roles:
+    - web
