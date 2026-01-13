@@ -3,7 +3,7 @@
   gather_facts: false
 
   collections:
-    - amazon.aws
+    - community.aws
 
   roles:
     - web

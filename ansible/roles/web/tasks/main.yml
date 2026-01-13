@@ -1,5 +1,5 @@
 - name: Install nginx via AWS SSM
-  amazon.aws.ssm_send_command:
+  community.aws.ssm_send_command:
     document_name: AWS-RunShellScript
     targets:
       - key: InstanceIds
@@ -12,7 +12,7 @@
         - systemctl start nginx
 
 - name: Create nginx index page via AWS SSM
-  amazon.aws.ssm_send_command:
+  community.aws.ssm_send_command:
     document_name: AWS-RunShellScript
     targets:
       - key: InstanceIds
