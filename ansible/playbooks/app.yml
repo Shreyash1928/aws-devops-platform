@@ -1,7 +1,7 @@
 - name: Configure application servers
   hosts: all
   gather_facts: false
-  connection: amazon.aws.aws_ssm
 
-  roles:
-    - web
+  tasks:
+    - import_role:
+        name: web
