@@ -10,9 +10,7 @@
   ansible.builtin.shell: |
     cat <<'EOF' > /usr/share/nginx/html/index.html
     <html>
-      <head>
-        <title>Deployed via Ansible SSM</title>
-      </head>
+      <head><title>Deployed via Ansible SSM</title></head>
       <body>
         <h1>🚀 NGINX DEPLOYED SUCCESSFULLY</h1>
         <p>Deployed using Ansible + AWS SSM</p>
