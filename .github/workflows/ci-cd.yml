@@ -81,9 +81,9 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve
 
-#####################################
+####################################
 # ANSIBLE (RUNS AFTER APPLY)
-#####################################
+####################################
 
   ansible:
     name: Ansible via SSM
