@@ -1,34 +1,23 @@
-- name: Install nginx via AWS SSM
-  community.aws.ssm_send_command:
-    document_name: AWS-RunShellScript
-    targets:
-      - key: InstanceIds
-        values:
-          - "{{ inventory_hostname }}"
-    parameters:
-      commands:
-        - yum install -y nginx
-        - systemctl enable nginx
-        - systemctl start nginx
+- name: Install nginx using SSM
+  ansible.builtin.shell: |
+    yum install -y nginx
+    systemctl enable nginx
+    systemctl start nginx
+  args:
+    executable: /bin/bash
 
-- name: Create nginx index page via AWS SSM
-  community.aws.ssm_send_command:
-    document_name: AWS-RunShellScript
-    targets:
-      - key: InstanceIds
-        values:
-          - "{{ inventory_hostname }}"
-    parameters:
-      commands:
-        - |
-          cat <<'EOF' > /usr/share/nginx/html/index.html
-          <html>
-            <head>
-              <title>Deployed via Ansible SSM</title>
-            </head>
-            <body>
-              <h1>🚀 NGINX DEPLOYED SUCCESSFULLY</h1>
-              <p>Deployed using Ansible + AWS SSM</p>
-            </body>
-          </html>
-          EOF
+- name: Create nginx index page
+  ansible.builtin.shell: |
+    cat <<'EOF' > /usr/share/nginx/html/index.html
+    <html>
+      <head>
+        <title>Deployed via Ansible SSM</title>
+      </head>
+      <body>
+        <h1>🚀 NGINX DEPLOYED SUCCESSFULLY</h1>
+        <p>Deployed using Ansible + AWS SSM</p>
+      </body>
+    </html>
+    EOF
+  args:
+    executable: /bin/bash
