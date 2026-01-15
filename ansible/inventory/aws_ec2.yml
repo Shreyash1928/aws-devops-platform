@@ -8,3 +8,8 @@ filters:
 
 hostnames:
   - instance-id
+
+compose:
+  ansible_connection: amazon.aws.aws_ssm
+  ansible_aws_ssm_region: ap-south-1
+  ansible_python_interpreter: /usr/bin/python3

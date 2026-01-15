@@ -1,24 +1,22 @@
----
-- name: Install nginx using SSM (raw)
-  ansible.builtin.raw: |
-    sudo yum install -y nginx
+- name: Install nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: present
 
-- name: Enable nginx
-  ansible.builtin.raw: |
-    sudo systemctl enable nginx
+- name: Enable and start nginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: true
 
-- name: Start nginx
-  ansible.builtin.raw: |
-    sudo systemctl start nginx
-
-- name: Create nginx index page
-  ansible.builtin.raw: |
-    sudo tee /usr/share/nginx/html/index.html > /dev/null <<'EOF'
-    <html>
-      <head><title>Deployed via Ansible SSM</title></head>
-      <body>
-        <h1>🚀 NGINX DEPLOYED SUCCESSFULLY</h1>
-        <p>Deployed using Ansible + AWS SSM</p>
-      </body>
-    </html>
-    EOF
+- name: Create index page
+  ansible.builtin.copy:
+    dest: /usr/share/nginx/html/index.html
+    content: |
+      <html>
+        <head><title>Ansible SSM</title></head>
+        <body>
+          <h1>🚀 NGINX DEPLOYED SUCCESSFULLY</h1>
+          <p>Via Ansible + AWS SSM</p>
+        </body>
+      </html>
