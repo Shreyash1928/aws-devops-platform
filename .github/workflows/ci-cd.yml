@@ -105,10 +105,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # 🔹 Python (keep 3.10 – good choice)
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+
+      # 🔥 THIS WAS MISSING (MANDATORY FOR SSM)
+      - name: Install AWS Session Manager Plugin
+        run: |
+          curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.deb" \
+            -o session-manager-plugin.deb
+          sudo dpkg -i session-manager-plugin.deb
+          session-manager-plugin --version
 
       - name: Install Ansible dependencies
         run: |
@@ -117,13 +126,12 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-          # 🔑 REQUIRED for SSM
+          # 🔑 REQUIRED collections
           ansible-galaxy collection install amazon.aws
           ansible-galaxy collection install community.aws
 
-          # ✅ VERIFY (THIS IS STEP 1)
+          # ✅ VERIFY
           ansible-galaxy collection list
-
 
       - name: Debug inventory in pipeline
         run: |
@@ -135,7 +143,7 @@ jobs:
           echo "Ansible inventory graph:"
           ansible-inventory --graph
 
-
+      # 🚀 THIS WILL NOW WORK
       - name: Run Ansible via SSM
         run: |
           source .venv/bin/activate
