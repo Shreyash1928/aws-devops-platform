@@ -49,9 +49,9 @@ resource "aws_lb_listener" "http" {
 resource "aws_autoscaling_group" "this" {
   name                = "${var.project_name}-${var.environment}-asg"
   vpc_zone_identifier = var.private_subnet_ids
-  desired_capacity    = 1
+  desired_capacity    = 0
   max_size            = 2
-  min_size            = 1
+  min_size            = 0
 
   target_group_arns = [aws_lb_target_group.this.arn]
 
