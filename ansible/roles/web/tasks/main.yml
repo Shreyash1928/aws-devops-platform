@@ -1,6 +1,11 @@
 - name: Install nginx using SSM
   ansible.builtin.shell: |
     yum install -y nginx
+  args:
+    executable: /bin/bash
+
+- name: Enable and start nginx
+  ansible.builtin.shell: |
     systemctl enable nginx
     systemctl start nginx
   args:
