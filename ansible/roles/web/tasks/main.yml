@@ -1,19 +1,25 @@
 - name: Install nginx using SSM
   ansible.builtin.shell: |
-    yum install -y nginx
+    echo "Installing nginx..."
+    sudo yum install -y nginx
+    echo "nginx installed"
   args:
     executable: /bin/bash
 
 - name: Enable and start nginx
   ansible.builtin.shell: |
-    systemctl enable nginx
-    systemctl start nginx
+    echo "Starting nginx..."
+    sudo systemctl enable nginx
+    sudo systemctl start nginx
+    systemctl status nginx --no-pager || true
+    echo "nginx running"
   args:
     executable: /bin/bash
 
 - name: Create nginx index page
   ansible.builtin.shell: |
-    cat <<'EOF' > /usr/share/nginx/html/index.html
+    echo "Creating index.html"
+    sudo tee /usr/share/nginx/html/index.html > /dev/null <<'EOF'
     <html>
       <head><title>Deployed via Ansible SSM</title></head>
       <body>
@@ -22,5 +28,6 @@
       </body>
     </html>
     EOF
+    echo "index.html created"
   args:
     executable: /bin/bash
