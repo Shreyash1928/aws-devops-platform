@@ -1,9 +1,9 @@
+---
 - name: Configure application servers
   hosts: all
   gather_facts: false
   connection: amazon.aws.aws_ssm
-  become: true
-  become_method: sudo
+  become: false
 
   roles:
     - web
